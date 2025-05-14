@@ -15,25 +15,31 @@ while True:
     print("5. Deletar tarefas completadas")
     print("6. Sair")
 
-    opcao_menu = input("Escolha uma opção: ")
+    try:
+        entrada =input("Escolha uma opção: ").strip()
+        opcao_menu = int(entrada)
+        
+        if opcao_menu == 1:
+            nova_tarefa = input("Digite a nova tarefa: ")
+            adicionar_tarefa(tarefas, nova_tarefa)
+        elif opcao_menu == 2:
+            listar_tarefas(tarefas)
+        elif opcao_menu == 3:
+            listar_tarefas(tarefas)
+            index_tarefa = int(input("Digite o número da tarefa a ser atualizada: "))
+            atualizar_tarefa(tarefas, index_tarefa)
+        elif opcao_menu == 4:
+            listar_tarefas(tarefas)
+            index_tarefa = int(input("Digite o número da tarefa a ser completada: "))
+            completar_tarefa(index_tarefa, tarefas)
+        elif opcao_menu == 5:
+            deletar_tarefa( tarefas)
+        elif opcao_menu == 6:
+            print("Saindo do programa...")
+            break
+    except ValueError:
+       print("Por favor, digite um número válido.")
 
-    if opcao_menu == "1":
-        nova_tarefa = input("Digite a nova tarefa: ")
-        adicionar_tarefa(tarefas, nova_tarefa)
-    elif opcao_menu == "2":
-        listar_tarefas(tarefas)
-    elif opcao_menu == "3":
-        listar_tarefas(tarefas)
-        index_tarefa = int(input("Digite o número da tarefa a ser atualizada: "))
-        atualizar_tarefa(tarefas, index_tarefa)
-    elif opcao_menu == "4":
-        listar_tarefas(tarefas)
-        index_tarefa = int(input("Digite o número da tarefa a ser completada: "))
-        completar_tarefa(index_tarefa, tarefas)
-    elif opcao_menu == "5":
-        listar_tarefas(tarefas)
-        index_tarefa = int(input("Digite o número da tarefa a ser deletada: "))
-        deletar_tarefa(index_tarefa, tarefas)
-    elif opcao_menu == "6":
-        break
+        
+       
     
